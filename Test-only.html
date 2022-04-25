@@ -1,0 +1,318 @@
+<!-- THIS EMAIL WAS BUILT AND TESTED WITH LITMUS http://litmus.com -->
+<!-- IT WAS RELEASED UNDER THE MIT LICENSE https://opensource.org/licenses/MIT -->
+<!-- QUESTIONS? TWEET US @LITMUSAPP -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+  <meta charset="utf-8"><!-- utf-8 works for most cases -->
+  <meta content="width=device-width" name="viewport"><!-- Forcing initial-scale shouldn't be necessary -->
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"><!-- Use the latest (edge) version of IE rendering engine -->
+  <meta name="x-apple-disable-message-reformatting"><!-- Disable auto-scale in iOS 10 Mail entirely -->
+  <title>Newsletter</title><!-- The title tag shows in email notifications, like Android 4.4. -->
+  <!-- Web Font / @font-face : BEGIN -->
+  <!-- NOTE: If web fonts are not required, lines 10 - 27 can be safely removed. -->
+  <!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->
+  <!--[if mso]>
+        <style>
+            * {
+                font-family: Arial, sans-serif !important;
+            }
+        </style>
+    <![endif]-->
+  <!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
+  <!--[if !mso]><!-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500" rel="stylesheet"><!--<![endif]-->
+  <!-- Web Font / @font-face : END -->
+  <!-- CSS Reset -->
+
+  <style>
+
+          /* What it does: Remove spaces around the email design added by some email clients. */
+          /* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+          html,
+          body {
+              margin: 0 auto !important;
+              padding: 0 !important;
+              height: 100% !important;
+              width: 100% !important;
+          }
+
+          /* What it does: Stops email clients resizing small text. */
+          * {
+              -ms-text-size-adjust: 100%;
+              -webkit-text-size-adjust: 100%;
+          }
+
+          /* What it does: Centers email on Android 4.4 */
+          div[style*="margin: 16px 0"] {
+              margin:0 !important;
+          }
+
+          /* What it does: Stops Outlook from adding extra spacing to tables. */
+          table,
+          td {
+              mso-table-lspace: 0pt !important;
+              mso-table-rspace: 0pt !important;
+          }
+
+          /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+          table {
+              border-spacing: 0 !important;
+              border-collapse: collapse !important;
+              table-layout: fixed !important;
+              margin: 0 auto !important;
+          }
+          table table table {
+              table-layout: auto;
+          }
+
+          /* What it does: Uses a better rendering method when resizing images in IE. */
+          img {
+              -ms-interpolation-mode:bicubic;
+          }
+
+          /* What it does: A work-around for email clients meddling in triggered links. */
+          *[x-apple-data-detectors],  /* iOS */
+          .x-gmail-data-detectors,    /* Gmail */
+          .x-gmail-data-detectors *,
+          .aBn {
+              border-bottom: 0 !important;
+              cursor: default !important;
+              color: inherit !important;
+              text-decoration: none !important;
+              font-size: inherit !important;
+              font-family: inherit !important;
+              font-weight: inherit !important;
+              line-height: inherit !important;
+          }
+
+          /* What it does: Prevents Gmail from displaying an download button on large, non-linked images. */
+          .a6S {
+              display: none !important;
+              opacity: 0.01 !important;
+          }
+          /* If the above doesn't work, add a .g-img class to any image in question. */
+          img.g-img + div {
+              display:none !important;
+             }
+
+          /* What it does: Prevents underlining the button text in Windows 10 */
+          .button-link {
+              text-decoration: none !important;
+          }
+
+          /* What it does: Removes right gutter in Gmail iOS app: https://github.com/TedGoas/Cerberus/issues/89  */
+          /* Create one of these media queries for each additional viewport size you'd like to fix */
+          /* Thanks to Eric Lepetit @ericlepetitsf) for help troubleshooting */
+          @media only screen and (min-device-width: 375px) and (max-device-width: 413px) { /* iPhone 6 and 6+ */
+              .email-container {
+                  min-width: 375px !important;
+              }
+          }
+
+  </style><!-- Progressive Enhancements -->
+
+  <style>
+
+          /* What it does: Hover styles for buttons */
+          .button-td,
+          .button-a {
+              transition: all 100ms ease-in;
+          }
+          .button-td2:hover,
+             .button-a2:hover {
+                 background: #ffffff !important;
+                 border-color: #008549 !important;
+                 color: #008549 !important;
+             }
+             
+             .button-a:hover {
+                 background: #00506D !important;
+                 border-color: #00506D !important;
+                 color: #ffffff !important;
+             }
+
+          /* Media Queries */
+          @media screen and (max-width: 480px) {
+
+              /* What it does: Forces elements to resize to the full width of their container. Useful for resizing images beyond their max-width. */
+              .fluid {
+                  width: 100% !important;
+                  max-width: 100% !important;
+                  height: auto !important;
+                  margin-left: auto !important;
+                  margin-right: auto !important;
+              }
+
+              /* What it does: Forces table cells into full-width rows. */
+              .stack-column,
+              .stack-column-center {
+                  display: block !important;
+                  width: 100% !important;
+                  max-width: 100% !important;
+                  direction: ltr !important;
+              }
+              /* And center justify these ones. */
+              .stack-column-center {
+                  text-align: center !important;
+              }
+
+              /* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
+              .center-on-narrow {
+                  text-align: center !important;
+                  display: block !important;
+                  margin-left: auto !important;
+                  margin-right: auto !important;
+                  float: none !important;
+              }
+              table.center-on-narrow {
+                  display: inline-block !important;
+              }
+
+              /* What it does: Adjust typography on small screens to improve readability */
+              .email-container p {
+                  font-size: 17px !important;
+                  line-height: 22px !important;
+              }
+          }
+
+  </style><!-- What it does: Makes background images in 72ppi Outlook render at correct size. -->
+  <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+</head>
+<body bgcolor="#e8eaed" style="margin: 0; mso-line-height-rule: exactly;">
+  <center style="width: 100%; background: #e8eaed; text-align: left;">
+    <br>
+    <!-- Visually Hidden Preheader Text : BEGIN -->
+    <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;">
+      #Pre
+    </div><!-- Visually Hidden Preheader Text : END -->
+    <!--
+            Set the email width. Defined in two places:
+            1. max-width for all clients except Desktop Windows Outlook, allowing the email to squish on narrow but never go wider than 600px.
+            2. MSO tags for Desktop Windows Outlook enforce a 600px width.
+            Note: The Fluid and Responsive templates have a different width (600px). The hybrid grid is more "fragile", and I've found that 600px is a good width. Change with caution.
+        -->
+    <div class="email-container" style="max-width: 600px; margin: auto;">
+      <!--[if mso]>
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" align="center">
+            <tr>
+            <td>
+            <![endif]-->
+      <!-- Email Body : BEGIN -->
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="email-container" role="presentation" style="max-width: 600px;" width="100%">
+        <!-- HEADER : BEGIN -->
+        <tr>
+          <td style="background-color: #FFFFFF; border-bottom: 5px solid #008549; height:1px; width:100%; margin:0px 0px 0px 0px;">
+            <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+              <tr>
+                <td style="padding: 20px 40px 20px 40px; text-align: left;"><img alt="Enterprise Guide" border="0" src="https://s3.amazonaws.com/enterprise-guide/responsive/header+logo.png" style="height: auto; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #565656;" width="200"></td>
+              </tr>
+            </table>
+          </td>
+        </tr><!-- HEADER : END -->
+        <!-- HERO : BEGIN -->
+        <tr>
+          <td align="center" bgcolor="#008549" style="text-align: center;" valign="top" width="100%"><img src="http://techdata-trends.com/image/techdata-trends/Header_TDT_Q3_2020.jpg" alt="Header Image" style="display: block; width: 100%;"></td>
+        </tr><!-- HERO : END -->
+        <!-- INTRO : BEGIN -->
+        <tr>
+          <td bgcolor="#FFFFFF" style="background-color: #ffffff;">
+            <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+              <tr>
+                <td bgcolor="#FFFFFF" style="padding: 40px 40px 20px 40px; font-family: 'metropolislight', Helvetica, Arial, sans-serif; font-size: 20px; line-height: 28px; color: #212121; text-align: left; font-weight:bold;">
+                  <p style="margin: 0;"><a href="https://theenterpriseguide.com/resources/166125/standard-bank-successfully-outsources-all-hr-app-integration-to-modulus-data?js=1" style="color: #212121;text-decoration: none;" target="_blank">Standard Bank Successfully Outsources All HR App Integration to Modulus Data</a></p>
+                </td>
+              </tr>
+              <tr>
+                <td align="left" bgcolor="#FFFFFF" style="padding: 0px 40px 40px 40px;">
+                  <!-- Button : BEGIN -->
+                  <table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" style="text-align: center;">
+                    <tr>
+                      <td class="button-td" style="text-align: center;">
+                        <a class="button-a" href="https://theenterpriseguide.com/resources/166125/standard-bank-successfully-outsources-all-hr-app-integration-to-modulus-data?js=1" style="border: 1px solid #00506D;background-color: #ffffff; border-radius: 3px; padding: 12px 18px 12px 18px; font-family: 'metropolislight', sans-serif; font-size: 14px; line-height: 1.1; text-align: center; text-decoration: none; display: block; font-weight: normal; color: #00506D;" target="_blank">Download Now</a>
+                      </td>
+                    </tr>
+                  </table><!-- Button : END -->
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#FFFFFF" style="padding: 0px 40px 20px 40px; font-family: 'metropolislight', Helvetica, Arial, sans-serif; font-size: 15px; line-height: 22px; color: #565656; text-align: left; font-weight:normal;">
+                  <p style="margin: 0;">Standard Bank, an international bank operating in 27 countries, successfully outsourced all HR app integration to Modulus Data. Using Flexspring, an easy-to-scale integration platform, Modulus Data created over 51 custom integrations to help Standard Bank modernize data provisioning and free its HR professionals from manual, double-data entry.<br><br>
+
+Do you want to see a case-study on how Standard Bank, an international bank operating in 27 countries, completely modernized how it deals with employee data and freed its HR teams from manual, double-data entry?
+                </td>
+              </tr>
+              <tr>
+                <td align="left" bgcolor="#FFFFFF" style="padding: 0px 40px 40px 40px;">
+                  <!-- Button : BEGIN -->
+                  <table align="left" border="0" cellpadding="0" cellspacing="0" role="presentation" style="text-align: center;">
+                    <tr>
+                      <td class="button-td2" style="text-align: center;background-color: #008549;border-radius: 3px;">
+                        <a class="button-a2" href="https://theenterpriseguide.com/resources/166125/standard-bank-successfully-outsources-all-hr-app-integration-to-modulus-data?js=1" style=" border: 1px solid #008549;background-color: #008549; border-radius: 3px; padding: 12px 18px 12px 18px; font-family: 'metropolislight', sans-serif; font-size: 14px; line-height: 1.1; text-align: center; text-decoration: none; display: block; font-weight: normal; color: #ffffff;" target="_blank">Download Now</a>
+                      </td>
+                    </tr>
+                  </table><!-- Button : END -->
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#FFFFFF" style="background:#FFFFFF; border-bottom: 5px solid #008549; height:1px; width:100%; margin:0px 0px 0px 0px;">&nbsp;</td>
+        </tr><!-- FOOTER : BEGIN -->
+        <tr>
+          <td bgcolor="#FFFFFF" style="background-color: #FFFFFF;">
+            <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+              <tr>
+                <td style="padding: 0px 40px 0px 40px; font-family: sans-serif; font-size: 12px; line-height: 18px; color: #666666; text-align: center; font-weight:normal;"></td>
+              </tr>
+              <tr>
+                <td align="left" style="line-height:0px;padding-top: 30px;padding-bottom: 5px;padding-left: 40px;padding-right: 40px;">
+                  <p style="margin: 0;font-family: 'metropolislight', Helvetica, Arial, sans-serif; font-size: 11px; line-height: 17px; color: #9c9c9e; text-align: left; font-weight:bold;">About Enterprise Guide</p>
+                </td>
+                </tr>
+                <tr>
+                <td align="left" style="line-height:0px;padding-left: 40px;padding-right: 40px;padding-bottom: 30px;">
+                  <p style="margin: 0;font-family: 'metropolislight', Helvetica, Arial, sans-serif; font-size: 11px; line-height: 17px; color: #9c9c9e; text-align: left; font-weight:normal;">TheEnterpriseGuide.com is the definitive, industry-leading source for IT professionals and business decision makers who are involved in purchasing enterprise technology. Organized by industry and by technology topic, Enterpise Guide brings together buyers and sellers to facilitate the buying process for enterprise class technologies.</p>
+                </td>
+              </tr>
+              <tr>
+                <td align="left" style="line-height:0px;padding-bottom: 5px;padding-left: 40px;padding-right: 40px;">
+                  <p style="margin: 0;font-family: 'metropolislight', Helvetica, Arial, sans-serif; font-size: 11px; line-height: 17px; color: #9c9c9e; text-align: left; font-weight:bold;">Contact Us</p>
+                </td>
+                </tr>
+                <tr>
+                <td align="left" style="line-height:0px;padding-top: 0px;padding-bottom: 30px;padding-left: 40px;padding-right: 40px;">
+                  <p style="margin: 0;font-family: 'metropolislight', Helvetica, Arial, sans-serif; font-size: 11px; line-height: 17px; color: #9c9c9e; text-align: left; font-weight:normal;">222 Rosewood Drive<br/>
+                                                            Danvers, MA 01923<br/>
+                                                            978-887-0010</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr><!-- FOOTER : END -->
+      </table><!-- Email Body : END -->
+      <!--[if mso]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+            <table align="center" border="0" cellpadding="0" cellspacing="0" class="email-container" role="presentation" style="max-width: 600px;" width="100%">
+            <tr>
+                <td style="padding-top: 20px;padding-left: 40px;padding-right: 40px;padding-bottom: 20px; font-family: 'metropolislight', Helvetica, Arial, sans-serif; font-size: 11px; line-height: 17px; color: #9c9c9e; text-align: center; font-weight:normal;">
+                  <p style="margin: 0;">If you believe this message has been sent to you in error, follow this <a href="##UNSUBSCRIBEURL##" style="color: #9c9c9e; text-decoration: none; font-size: 11px;"><u>link</u></a>.</p>
+                </td>
+              </tr>
+            </table>
+    </div>
+  </center>
+</body>
+</html>
